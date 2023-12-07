@@ -3,6 +3,7 @@ const restcountries = fetch("https://restcountries.com/v3.1/all");
 restcountries
   .then((data) => data.json())
   .then((data2) => {
+
     let container = document.createElement("div");
     container.className = "container";
     let row = document.createElement("div");
@@ -35,6 +36,8 @@ restcountries
         <p class="card-text"><b><i>Region: ${data2[i].region}</i></b></p>
 
         <p class="card-text"><b><i>Country code: ${data2[i].cca3}</i></b></p>
+
+        <p class="card-text"><b><i>latlng: ${data2[i].latlng}</i></b></p>
 
         <div id="weather${data2[i].name.common}">
 
@@ -88,6 +91,5 @@ function getWeatherData(restCountryName) {
       console.error("error fetching weather data. :", error);
       alert`error fetching weather data.`;
     });
-  
   
 }
